@@ -1,3 +1,129 @@
+<?php
+
+class Student
+{
+
+    /**
+     * @var string
+     */
+    private string $firstname;
+
+    /**
+     * @var string
+     */
+    private string $lastname;
+
+    /**
+     * @var DateTime
+     */
+
+    private DateTime $birthdate;
+    /**
+     * @var string
+     */
+    private string $grade;
+
+    /**
+     * @var string
+     */
+    private string $school;
+
+    public function __construct(string $firstname, string $lastname, DateTime $birthdate, string $grade, string $school)
+    {
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $this->birthdate = $birthdate;
+        $this->grade = $grade;
+        $this->school = $school;
+    }
+
+    // -------------------
+    // GETTERS & SETTERS
+    // -------------------
+
+    /**
+     * Undocumented function
+     *
+     * @return string
+     */
+    public function getFirstname(): string
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param string $firstname
+     * @return string
+     */
+    public function setFirstname(string $firstname): void
+    {
+        $this->firstname = $firstname;
+    }
+
+    public function getLastname(): string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(string $lastname): void
+    {
+        $this->lastname = $lastname;
+    }
+
+    public function getBirthdate(): DateTime
+    {
+        return $this->birthdate;
+    }
+
+    public function setBirthdate(DateTime $birthdate): void
+    {
+        $this->birthdate = $birthdate;
+    }
+
+    public function getGrade(): string
+    {
+        return $this->grade;
+    }
+
+    public function setGrade(string $grade): void
+    {
+        $this->grade = $grade;
+    }
+
+    public function getSchool(): string
+    {
+        return $this->school;
+    }
+
+    public function setSchool(string $school): void
+    {
+        $this->school = $school;
+    }
+
+
+    // ----------------
+    // METHODS
+    // ----------------
+
+    /**
+     * Give the student age
+     *
+     * @return integer
+     */
+    public function getAge(): int
+    {
+        return $this->birthdate->diff(new DateTime)->y;
+    }
+
+    public function introduce(): string
+    {
+        return "Bonjour, je m'appelle {$this->firstname} {$this->lastname}, j'ai {$this->getAge()} ans et je vais à l'école {$this->school} en classe de {$this->grade}.";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +150,7 @@
                 </ul>
             </nav>
         </header>
-        
+
         <!-- QUESTION 1 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 1</h2>
@@ -36,10 +162,16 @@
                 Créer 2 étudiants différents.
             </p>
             <div class="exercice-sandbox">
-    
+                <?php
+                $student1 = new Student('James', 'Noah', new DateTime('2000-12-30'), '7', 'Saint Rozaire');
+                $student2 = new Student('John', 'Doe', new DateTime('1998-06-30'), '13', 'Saint Joseph');
+
+                var_dump($student1, $student2);
+
+                ?>
             </div>
         </section>
-        
+
         <!-- QUESTION 2 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 2</h2>
@@ -49,10 +181,14 @@
                 Modifier le niveau scolaire des 2 élèves et les afficher.
             </p>
             <div class="exercice-sandbox">
-    
+                <?php
+                $student1->setGrade('6ème');
+                $student2->setGrade('Terminale');
+                var_dump($student1, $student2);
+                ?>
             </div>
         </section>
-        
+
         <!-- QUESTION 3 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 3</h2>
@@ -62,10 +198,13 @@
                 Mettez à jour l'instanciation des 2 élèves et afficher leur date de naissance.
             </p>
             <div class="exercice-sandbox">
-
+                <?php
+                var_dump($student1->getBirthdate()->format('d M Y'));
+                var_dump($student2->getBirthdate()->format('d M Y'));
+                ?>
             </div>
         </section>
-        
+
         <!-- QUESTION 4 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 4</h2>
@@ -75,11 +214,14 @@
                 Afficher l'âge des 2 élèves.
             </p>
             <div class="exercice-sandbox">
+                <?php
+                var_dump($student1->getAge());
+                var_dump($student2->getAge());
 
-
+                ?>
             </div>
         </section>
-        
+
         <!-- QUESTION 5 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 5</h2>
@@ -92,7 +234,7 @@
 
             </div>
         </section>
-        
+
         <!-- QUESTION 6 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 6</h2>
@@ -103,11 +245,18 @@
                 Afficher la phrase de présentation des 2 élèves.
             </p>
             <div class="exercice-sandbox">
+                <?php
 
+                echo $student1->introduce();
+                echo '<br>';
+                echo $student2->introduce();
+
+                ?>
             </div>
         </section>
 
     </div>
     <div class="copyright">© Guillaume Belleuvre, 2023 - DWWM</div>
 </body>
+
 </html>
