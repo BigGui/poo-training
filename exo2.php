@@ -1,3 +1,103 @@
+<?php
+
+class Teacher
+{
+
+    private string $firstname;
+    private string $lastname;
+    private array $subjects;
+    private string $school;
+
+    public function __construct(string $firstname, string $lastname, array $subjects = [], string $school = '')
+    {
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $this->subjects = $subjects;
+        $this->school = $school;
+    }
+
+    public function getFirstname(): string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(string $firstname): void
+    {
+        $this->firstname = $firstname;
+    }
+
+    public function getLastname(): string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(string $lastname): void
+    {
+        $this->lastname = $lastname;
+    }
+
+
+    public function getSubjects(): array
+    {
+        return $this->subjects;
+    }
+
+    public function setSubjects(array $subjects): void
+    {
+        $this->subjects = $subjects;
+    }
+
+    public function getSchool(): string
+    {
+        return $this->school;
+    }
+
+    public function setSchool(string $school): void
+    {
+        $this->school = $school;
+    }
+
+
+    /**
+     * Add a subject into the subjects list.
+     *
+     * @param string $subject
+     * @return void
+     */
+    public function addSubject(string $subject): void
+    {
+        $this->subjects[] = $subject;
+    }
+
+    /**
+     * Remove subject from subjects list.
+     *
+     * @param string $subject
+     * @return void
+     */
+    public function removeSubject(string $subject): void
+    {
+        $index = array_search($subject, $this->subjects);
+        if ($index !== false) unset($this->subjects[$index]);
+    }
+
+    /**
+     * Give the subjects list in text
+     *
+     * @return string
+     */
+    public function displaySubjects(): string
+    {
+        return implode(', ', $this->subjects);
+    }
+
+    public function introduce(): string
+    {
+        return "Bonjour, je m'appelle {$this->firstname} {$this->lastname} et j'enseigne à l'école {$this->school} les matières suivantes : {$this->displaySubjects()}.";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +124,7 @@
                 </ul>
             </nav>
         </header>
-        
+
         <!-- QUESTION 1 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 1</h2>
@@ -36,11 +136,17 @@
                 Créer 2 professeurs différents.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+
+                $teacher1 = new Teacher('Nicolas', 'Nobody');
+                $teacher2 = new Teacher('Guillaume', 'Leconquérant');
+
+                var_dump($teacher1, $teacher2);
+                ?>
             </div>
         </section>
-        
-        
+
+
         <!-- QUESTION 2 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 2</h2>
@@ -52,11 +158,18 @@
                 Afficher les écoles des 2 professeurs.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                $teacher1->setSchool('Creative');
+                $teacher2->setSchool('Sorbonne');
+
+                echo $teacher1->getSchool();
+                echo '<br>';
+                echo $teacher2->getSchool();
+                ?>
             </div>
         </section>
-        
-        
+
+
         <!-- QUESTION 3 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 3</h2>
@@ -66,7 +179,18 @@
                 Tester l'ajout, la suppression et l'affichage sur chacun des profs.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                $teacher1->addSubject('anti-inflaton');
+                $teacher1->addSubject('HTML');
+                $teacher1->addSubject('Français');
+
+                echo $teacher1->displaySubjects();
+
+                $teacher1->removeSubject('HTML');
+                echo '<br>';
+                echo $teacher1->displaySubjects();
+                ?>
+
             </div>
         </section>
 
@@ -81,11 +205,14 @@
                 Afficher la phrase de présentation des 2 profs.
             </p>
             <div class="exercice-sandbox">
-                
+                <?= $teacher1->introduce() ?>
+                <br>
+                <?= $teacher2->introduce() ?>
             </div>
         </section>
 
     </div>
     <div class="copyright">© Guillaume Belleuvre, 2023 - DWWM</div>
 </body>
+
 </html>
