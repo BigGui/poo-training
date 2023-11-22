@@ -70,12 +70,9 @@ class Student extends Person
 
     public function introduce(): string
     {
-    //     return parent::introduce() . ", j'ai {$this->getAge()} ans et je vais à l'école {$this->school} en classe de {$this->grade}.";
-        return self::getIntroduction([
-            'firstname' => $this->firstname,
-            'lastname' => $this->lastname,
-            'school' => $this->school,
-            'grade' => $this->grade,
+        //     return parent::introduce() . ", j'ai {$this->getAge()} ans et je vais à l'école {$this->school} en classe de {$this->grade}.";
+
+        return $this->getIntroduction([
             'age' => $this->getAge()
         ]);
     }

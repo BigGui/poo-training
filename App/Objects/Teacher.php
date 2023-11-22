@@ -62,10 +62,7 @@ class Teacher extends Person
     public function introduce(): string
     {
         //     return parent::introduce() . " et j'enseigne à l'école {$this->school} les matières suivantes : {$this->displaySubjects()}.";
-        return self::getIntroduction([
-            'firstname' => $this->firstname,
-            'lastname' => $this->lastname,
-            'school' => $this->school,
+        return $this->getIntroduction([
             'subjects' => $this->displaySubjects()
         ]);
     }
