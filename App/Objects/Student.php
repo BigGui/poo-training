@@ -21,7 +21,7 @@ class Student extends Person
      */
     private string $grade;
 
-    public function __construct(string $firstname, string $lastname, DateTime $birthdate, string $grade, string $school)
+    public function __construct(string $firstname, string $lastname, DateTime $birthdate, string $grade, School $school)
     {
         parent::__construct($firstname, $lastname, $school);
         $this->birthdate = $birthdate;
@@ -50,6 +50,8 @@ class Student extends Person
 
     public function setGrade(string $grade): void
     {
+        if (!$this->school->hasGrade($grade)) return;
+        
         $this->grade = $grade;
     }
 

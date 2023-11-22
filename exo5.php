@@ -1,3 +1,38 @@
+<?php
+spl_autoload_register();
+
+use App\Views\Page;
+use App\Views\Question;
+
+$questions = [];
+
+$questions[] = new Question([
+    'number' => 1,
+    'question' => " Créer une classe permettant de gérer l'affichage d'un template HTML en lisant un fichier grace à la fonction file_get_contents().",
+    'answer' => "YOUPI"
+]);
+
+
+$questions[] = new Question([
+    'number' => 2,
+    'question' => " Créer une classe permettant de gérer l'affichage des pages de ce mini-site.",
+    'answer' => "YATA"
+]);
+
+
+$page = new Page([
+    'content' => implode('', array_map(fn ($q) => $q->readContent(), $questions))
+]);
+
+
+echo $page->readContent();
+exit;
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 

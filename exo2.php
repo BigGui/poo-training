@@ -2,6 +2,8 @@
 spl_autoload_register();
 
 use App\Objects\Teacher;
+use App\Objects\ElementarySchool;
+use App\Objects\MiddleSchool;
 
 
 ?>
@@ -66,8 +68,13 @@ use App\Objects\Teacher;
             </p>
             <div class="exercice-sandbox">
                 <?php
-                $teacher1->setSchool('Creative');
-                $teacher2->setSchool('Sorbonne');
+
+
+                $school3 = new ElementarySchool('Jean de la Fontaine', 'Fontaine Etoupefour');
+                $school4 = new MiddleSchool('Jean de la Fontaine', 'Fontaine Etoupefour');
+
+                $teacher1->setSchool($school3);
+                $teacher2->setSchool($school4);
 
                 echo $teacher1->getSchool();
                 echo '<br>';

@@ -9,7 +9,7 @@ class Teacher extends Person
 
     private array $subjects;
 
-    public function __construct(string $firstname, string $lastname, array $subjects = [], string $school = '')
+    public function __construct(string $firstname, string $lastname, array $subjects = [], ?School $school = null)
     {
         parent::__construct($firstname, $lastname, $school);
         $this->subjects = $subjects;

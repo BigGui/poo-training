@@ -2,7 +2,18 @@
 spl_autoload_register();
 
 use App\Objects\Student;
+use App\Objects\ElementarySchool;
+use App\Objects\MiddleSchool;
 
+use App\Views\Page;
+
+$page = new Page([
+    'content' => 'HELLO WORLD'
+]);
+
+echo $page->readContent();
+
+exit;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,11 +54,19 @@ use App\Objects\Student;
             </p>
             <div class="exercice-sandbox">
                 <?php
-                $student1 = new Student('James', 'Noah', new DateTime('2000-12-30'), '7', 'Saint Rozaire');
-                $student2 = new Student('John', 'Doe', new DateTime('1998-06-30'), '13', 'Saint Joseph');
+
+                $school1 = new ElementarySchool('Saint Exupéry', 'Cherbourg');
+                $school2 = new MiddleSchool('Paul Verlaine', 'Evrecy');
+                $student1 = new Student('James', 'Noah', new DateTime('2000-12-30'), '7', $school1);
+                $student2 = new Student('John', 'Doe', new DateTime('1998-06-30'), '13', $school2);
 
                 var_dump($student1, $student2);
 
+                $student1->setGrade('Terminale');
+                var_dump($student1->getGrade());
+
+                $student1->setGrade('CM2');
+                var_dump($student1->getGrade());
                 ?>
             </div>
         </section>

@@ -2,7 +2,8 @@
 
 namespace App\Objects;
 
-class Person
+
+abstract class Person
 {
 
     // STATIC
@@ -20,12 +21,12 @@ class Person
     protected string $lastname;
 
     /**
-     * @var string
+     * @var School
      */
-    protected string $school;
+    protected ?School $school;
 
 
-    public function __construct(string $firstname, string $lastname, string $school)
+    public function __construct(string $firstname, string $lastname, ?School $school = null)
     {
         $this->firstname = $firstname;
         $this->lastname = $lastname;
@@ -64,12 +65,12 @@ class Person
         $this->lastname = $lastname;
     }
 
-    public function getSchool(): string
+    public function getSchool(): School
     {
         return $this->school;
     }
 
-    public function setSchool(string $school): void
+    public function setSchool(School $school): void
     {
         $this->school = $school;
     }
@@ -77,12 +78,12 @@ class Person
     protected function getIntroduction(array $data = []): string
     {
         preg_match_all('/##(\w)*##/', static::$intro, $keys);
-        $keys = array_map(fn ($w) => trim($w, '#'), $keys[0]);
-        foreach ($keys as $key) {
-            if (isset($this->{$key})) {
-                $data[$key] = $this->{$key};
-            }
+
+        foreach (array_filter($keys[0], fn ($k) => isset($this->{trim($k, '#')})) as $k) {
+            $l = trim($k, '#');
+            $data[$l] = $this->{$l};
         }
+
         return str_replace(
             array_map(fn ($t) => "##$t##", array_keys($data)),
             array_values($data),
