@@ -96,7 +96,10 @@ require_once "./include/_object.php";
                 Afficher l'âge des 2 élèves.
             </p>
             <div class="exercice-sandbox">
-
+                <?php
+                    echo '<p>J\'ai ' . $student1->getAge() . ' ans. <br>';
+                    echo 'J\'ai ' . $student2->getAge() . ' ans.</p>';
+                ?>
 
             </div>
         </section>

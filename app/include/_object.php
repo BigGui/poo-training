@@ -69,27 +69,8 @@ class Student
         return $this->lastname;
     }
 
-    /**
-     * set the age
-     *
-     * @param int $age
-     * @return void
-     */
-    // public function setAge(int $age): void
-    // {
-    //     $this->age = $age;
-    // }
 
-    /**
-     * get the age
-     *
-     * @return int
-     */
-    // public function getAge(): int
-    // {
-    //     return $this->age;
-    // }
-
+    
     /**
      * set the level
      *
@@ -100,7 +81,7 @@ class Student
     {
         $this->level = $level;
     }
-
+    
     /**
      * get the level
      *
@@ -110,12 +91,13 @@ class Student
     {
         return $this->level;
     }
+    
 
     /**
      * Get the value of birthdate
      * @return DateTime a birthdate
-     */ 
-    public function getBirthDate():DateTime
+     */
+    public function getBirthDate(): DateTime
     {
         return $this->birthDate;
     }
@@ -124,11 +106,21 @@ class Student
      * Set the value of birthDate.
      *@param DateTime $birthDate a birthdate.
      * @return  void
-     */ 
-    public function setBirthDate(DateTime $birthDate):void
+     */
+    public function setBirthDate(DateTime $birthDate): void
     {
-        
-        $this->birthDate = $birthDate;
 
+        $this->birthDate = $birthDate;
+    }
+
+
+        /**
+     * get the age
+     *
+     * @return int
+     */
+    public function getAge(): int
+    {
+        return $this->birthDate->diff(new DateTime())->y;
     }
 }
