@@ -73,7 +73,7 @@ class Student
     }
 
 
-    
+
     /**
      * set the level
      *
@@ -84,7 +84,7 @@ class Student
     {
         $this->level = $level;
     }
-    
+
     /**
      * get the level
      *
@@ -95,7 +95,7 @@ class Student
         return $this->level;
     }
 
-       /**
+    /**
      * set the school
      *
      * @param string $school
@@ -105,7 +105,7 @@ class Student
     {
         $this->school = $school;
     }
-    
+
     /**
      * get the school
      *
@@ -115,7 +115,7 @@ class Student
     {
         return $this->school;
     }
-    
+
 
     /**
      * Get the value of birthdate
@@ -138,7 +138,11 @@ class Student
     }
 
 
-        /**
+    // -------------------
+    // INSTANCE METHODS
+    // -------------------
+
+    /**
      * get the age
      *
      * @return int
@@ -146,5 +150,15 @@ class Student
     public function getAge(): int
     {
         return $this->birthDate->diff(new DateTime())->y;
+    }
+
+    /**
+     * get introduce my self
+     *
+     * @return string
+     */
+    public function introduceMySelf (): string 
+    {
+        return 'Bonjour, je m\'appelle ' . $this->getLastname() . ' ' .$this->getFirstname() . ' , j\'ai ' .$this->getAge() . ' ans et je vais à l\'école ' . $this->getSchool() . ' en class de ' .$this->getLevel() . '.';
     }
 }
