@@ -43,8 +43,8 @@ require_once "./include/_object.php";
                 <?php
                 $stud1Birthdate = new DateTime("1973-6-10");
                 $stud2Birthdate = new DateTime("1990/4/5");
-                $student1 = new Student('Molotov', 'Zangief',  $stud1Birthdate, "CP");
-                $student2 = new Student('Jones', 'Guile', $stud2Birthdate, "Moyenne Section");
+                $student1 = new Student('Molotov', 'Zangief',  $stud1Birthdate, "CP", "Jules Vernes");
+                $student2 = new Student('Jones', 'Guile', $stud2Birthdate, "Moyenne Section", "Rostand");
 
                 var_dump($student1);
                 var_dump($student2);
@@ -97,8 +97,8 @@ require_once "./include/_object.php";
             </p>
             <div class="exercice-sandbox">
                 <?php
-                    echo '<p>J\'ai ' . $student1->getAge() . ' ans. <br>';
-                    echo 'J\'ai ' . $student2->getAge() . ' ans.</p>';
+                echo '<p>J\'ai ' . $student1->getAge() . ' ans. <br>';
+                echo 'J\'ai ' . $student2->getAge() . ' ans.</p>';
                 ?>
 
             </div>
@@ -113,6 +113,11 @@ require_once "./include/_object.php";
                 Ajouter la propriété et ajouter la donnée sur les élèves.
             </p>
             <div class="exercice-sandbox">
+
+                <?php
+                echo '<p>L\'élève ' . $student1->getLastname() . ' va à l\'école ' . $student1->getSchool() .'.</p>';
+                echo '<p>L\'élève ' . $student2->getLastname() . ' va à l\'école ' . $student2->getSchool() .'.</p>';
+                ?>
 
             </div>
         </section>

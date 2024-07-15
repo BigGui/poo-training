@@ -6,6 +6,7 @@ class Student
     private string $firstname;
     private DateTime $birthDate;
     private string $level;
+    private string $school;
 
     /**
      * Constructor
@@ -14,13 +15,15 @@ class Student
      * @param string $firstname
      * @param DateTime $birthDate
      * @param string $level
+     * @param string $school
      */
-    public function __construct(string $lastname, string $firstname, DateTime $birthDate, string $level)
+    public function __construct(string $lastname, string $firstname, DateTime $birthDate, string $level, string $school)
     {
         $this->lastname = $lastname;
         $this->firstname = $firstname;
         $this->birthDate = $birthDate;
         $this->level = $level;
+        $this->school = $school;
     }
 
     // -------------------
@@ -90,6 +93,27 @@ class Student
     public function getLevel(): string
     {
         return $this->level;
+    }
+
+       /**
+     * set the school
+     *
+     * @param string $school
+     * @return void
+     */
+    public function setSchool(string $school): void
+    {
+        $this->school = $school;
+    }
+    
+    /**
+     * get the school
+     *
+     * @return string
+     */
+    public function getSchool(): string
+    {
+        return $this->school;
     }
     
 
