@@ -4,16 +4,28 @@ class Student
 {
     private string $lastname;
     private string $firstname;
-    private int $age;
+    private DateTime $birthDate;
     private string $level;
 
-    public function __construct(string $lastname, string $firstname, int $age, string $level)
+    /**
+     * Constructor
+     *
+     * @param string $lastname
+     * @param string $firstname
+     * @param DateTime $birthDate
+     * @param string $level
+     */
+    public function __construct(string $lastname, string $firstname, DateTime $birthDate, string $level)
     {
         $this->lastname = $lastname;
         $this->firstname = $firstname;
-        $this->age = $age;
+        $this->birthDate = $birthDate;
         $this->level = $level;
     }
+
+    // -------------------
+    // GETTERS AND SETTERS
+    // -------------------
 
     /**
      * set first name
@@ -25,6 +37,7 @@ class Student
     {
         $this->firstname = $firstname;
     }
+
     /**
      * get the first name
      *
@@ -34,6 +47,7 @@ class Student
     {
         return $this->firstname;
     }
+
     /**
      * set last name
      *
@@ -44,6 +58,7 @@ class Student
     {
         $this->lastname = $lastname;
     }
+
     /**
      * get the last name
      *
@@ -53,25 +68,28 @@ class Student
     {
         return $this->lastname;
     }
+
     /**
      * set the age
      *
      * @param int $age
      * @return void
      */
-    public function setAge(int $age): void
-    {
-        $this->age = $age;
-    }
+    // public function setAge(int $age): void
+    // {
+    //     $this->age = $age;
+    // }
+
     /**
      * get the age
      *
      * @return int
      */
-    public function getAge(): int
-    {
-        return $this->age;
-    }
+    // public function getAge(): int
+    // {
+    //     return $this->age;
+    // }
+
     /**
      * set the level
      *
@@ -82,6 +100,7 @@ class Student
     {
         $this->level = $level;
     }
+
     /**
      * get the level
      *
@@ -90,5 +109,26 @@ class Student
     public function getLevel(): string
     {
         return $this->level;
+    }
+
+    /**
+     * Get the value of birthdate
+     * @return DateTime a birthdate
+     */ 
+    public function getBirthDate():DateTime
+    {
+        return $this->birthDate;
+    }
+
+    /**
+     * Set the value of birthDate.
+     *@param DateTime $birthDate a birthdate.
+     * @return  void
+     */ 
+    public function setBirthDate(DateTime $birthDate):void
+    {
+        
+        $this->birthDate = $birthDate;
+
     }
 }

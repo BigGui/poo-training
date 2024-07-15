@@ -41,8 +41,10 @@ require_once "./include/_object.php";
             </p>
             <div class="exercice-sandbox">
                 <?php
-                $student1 = new Student('Molotov', 'Zangief', 6, "CP");
-                $student2 = new Student('Jones', 'Guile', 4, "Moyenne Section");
+                $stud1Birthdate = new DateTime("1973-6-10");
+                $stud2Birthdate = new DateTime("1990/4/5");
+                $student1 = new Student('Molotov', 'Zangief',  $stud1Birthdate, "CP");
+                $student2 = new Student('Jones', 'Guile', $stud2Birthdate, "Moyenne Section");
 
                 var_dump($student1);
                 var_dump($student2);
@@ -78,7 +80,10 @@ require_once "./include/_object.php";
                 Mettez à jour l'instanciation des 2 élèves et afficher leur date de naissance.
             </p>
             <div class="exercice-sandbox">
-
+                <?php
+                echo $student1->getLastname() . " " . $student1->getBirthDate()->format('Y-m-d') . "<br>";
+                echo  $student2->getLastname() . " " . $student2->getBirthDate()->format('Y-m-d');
+                ?>
             </div>
         </section>
 
