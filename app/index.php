@@ -59,7 +59,13 @@ require_once "./include/_object.php";
                 Modifier le niveau scolaire des 2 élèves et les afficher.
             </p>
             <div class="exercice-sandbox">
+                <?php
+                $student1->setLevel('CM1');
+                var_dump($student1->getLevel());
 
+                $student2->setLevel('CE1');
+                var_dump($student2->getLevel());
+                ?>
             </div>
         </section>
 
