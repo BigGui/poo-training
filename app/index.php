@@ -1,5 +1,8 @@
 <?php
-require_once "./include/_object.php";
+spl_autoload_register();
+
+use App\Objects\Student;
+
 ?>
 
 <!DOCTYPE html>
