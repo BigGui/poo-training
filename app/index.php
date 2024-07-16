@@ -80,10 +80,8 @@ require_once "./include/_object.php";
                 Mettez à jour l'instanciation des 2 élèves et afficher leur date de naissance.
             </p>
             <div class="exercice-sandbox">
-                <?php
-                echo $student1->getLastname() . " " . $student1->getBirthDate()->format('Y-m-d') . "<br>";
-                echo  $student2->getLastname() . " " . $student2->getBirthDate()->format('Y-m-d');
-                ?>
+                <p><?= $student1->getLastname() . " " . $student1->getBirthDate()->format('Y-m-d') ?></p>
+                <p><?= $student2->getLastname() . " " . $student2->getBirthDate()->format('Y-m-d') ?></p>
             </div>
         </section>
 
@@ -97,10 +95,9 @@ require_once "./include/_object.php";
             </p>
             <div class="exercice-sandbox">
                 <?php
-                echo '<p>J\'ai ' . $student1->getAge() . ' ans. <br>';
-                echo 'J\'ai ' . $student2->getAge() . ' ans.</p>';
+                echo '<p>J\'ai ' . $student1->getAge() . ' ans.</p>';
+                echo '<p>J\'ai ' . $student2->getAge() . ' ans.</p>';
                 ?>
-
             </div>
         </section>
 
@@ -113,12 +110,10 @@ require_once "./include/_object.php";
                 Ajouter la propriété et ajouter la donnée sur les élèves.
             </p>
             <div class="exercice-sandbox">
-
                 <?php
-                echo '<p>L\'élève ' . $student1->getLastname() . ' va à l\'école ' . $student1->getSchool() .'.</p>';
-                echo '<p>L\'élève ' . $student2->getLastname() . ' va à l\'école ' . $student2->getSchool() .'.</p>';
+                echo '<p>L\'élève ' . $student1->getLastname() . ' va à l\'école ' . $student1->getSchool() . '.</p>';
+                echo '<p>L\'élève ' . $student2->getLastname() . ' va à l\'école ' . $student2->getSchool() . '.</p>';
                 ?>
-
             </div>
         </section>
 
@@ -133,10 +128,8 @@ require_once "./include/_object.php";
             </p>
             <div class="exercice-sandbox">
                 <?php
-                    echo 
-                    '<p>' . $student1->introduceMySelf() . '</p>' . 
-                    '<p>' . $student2->introduceMySelf() . '</p>'
-
+                echo '<p>' . $student1->introduceMySelf() . '</p>' .
+                    '<p>' . $student2->introduceMySelf() . '</p>';
                 ?>
             </div>
         </section>

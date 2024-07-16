@@ -9,7 +9,7 @@ class Student
     private string $school;
 
     /**
-     * Constructor
+     * Create a new student
      *
      * @param string $lastname
      * @param string $firstname
@@ -31,7 +31,7 @@ class Student
     // -------------------
 
     /**
-     * set first name
+     * Set firstname
      *
      * @param string $firstname
      * @return void
@@ -42,7 +42,7 @@ class Student
     }
 
     /**
-     * get the first name
+     * Get firstname
      *
      * @return string
      */
@@ -52,7 +52,7 @@ class Student
     }
 
     /**
-     * set last name
+     * Set lastname
      *
      * @param string $lastname
      * @return void
@@ -63,7 +63,7 @@ class Student
     }
 
     /**
-     * get the last name
+     * Get lastname
      *
      * @return string
      */
@@ -73,9 +73,8 @@ class Student
     }
 
 
-
     /**
-     * set the level
+     * Set the level name
      *
      * @param string $level
      * @return void
@@ -86,7 +85,7 @@ class Student
     }
 
     /**
-     * get the level
+     * Get the level name
      *
      * @return string
      */
@@ -96,7 +95,7 @@ class Student
     }
 
     /**
-     * set the school
+     * Set the school name
      *
      * @param string $school
      * @return void
@@ -107,7 +106,7 @@ class Student
     }
 
     /**
-     * get the school
+     * Get the school name
      *
      * @return string
      */
@@ -128,7 +127,8 @@ class Student
 
     /**
      * Set the value of birthDate.
-     *@param DateTime $birthDate a birthdate.
+     * 
+     * @param DateTime $birthDate a birthdate.
      * @return  void
      */
     public function setBirthDate(DateTime $birthDate): void
@@ -143,7 +143,7 @@ class Student
     // -------------------
 
     /**
-     * get the age
+     * Get my age
      *
      * @return int
      */
@@ -153,12 +153,12 @@ class Student
     }
 
     /**
-     * get introduce my self
+     * Introduce my self with a sentence.
      *
      * @return string
      */
-    public function introduceMySelf (): string 
+    public function introduceMySelf(): string
     {
-        return 'Bonjour, je m\'appelle ' . $this->getLastname() . ' ' .$this->getFirstname() . ' , j\'ai ' .$this->getAge() . ' ans et je vais à l\'école ' . $this->getSchool() . ' en class de ' .$this->getLevel() . '.';
+        return 'Bonjour, je m\'appelle ' . $this->getLastname() . ' ' . $this->getFirstname() . ' , j\'ai ' . $this->getAge() . ' ans et je vais à l\'école ' . $this->getSchool() . ' en class de ' . $this->getLevel() . '.';
     }
 }
