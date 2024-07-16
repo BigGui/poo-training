@@ -276,5 +276,14 @@ class Teacher
     // INSTANCE METHODS
     // -------------------
 
-    
+    public function addDiscipline(string $newDiscipline) {
+        $this->discipline[] = $newDiscipline;
+    }
+
+    public function deleteDiscipline(string $discipline) {
+        $key = array_search($discipline, $this->discipline);
+        if($key !== false) {
+            unset($this->discipline[$key]);
+        }
+    }
 }

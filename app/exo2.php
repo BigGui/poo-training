@@ -84,7 +84,13 @@ require_once "./include/_object.php";
                 Tester l'ajout, la suppression et l'affichage sur chacun des profs.
             </p>
             <div class="exercice-sandbox">
+                <?php
+                $teacher1->addDiscipline('Sorcellerie');
+                $teacher1->deleteDiscipline('truc');
+                $teacher1->deleteDiscipline('Mathématiques');
 
+                var_dump($teacher1);
+                ?>
             </div>
         </section>
 
