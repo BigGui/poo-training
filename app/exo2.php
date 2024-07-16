@@ -89,7 +89,9 @@ require_once "./include/_object.php";
                 $teacher1->deleteDiscipline('truc');
                 $teacher1->deleteDiscipline('Mathématiques');
 
-                var_dump($teacher1);
+                echo '<p>' . $teacher1->showDisciplines() . '</p>';
+                echo '<p>' . $teacher2->showDisciplines() . '</p>';
+                // var_dump($teacher1);
                 ?>
             </div>
         </section>

@@ -276,14 +276,38 @@ class Teacher
     // INSTANCE METHODS
     // -------------------
 
-    public function addDiscipline(string $newDiscipline) {
+    /**
+     * Add a discipline to a teacher.
+     *
+     * @param string $newDiscipline - The name of new discipline.
+     * @return void
+     */
+    public function addDiscipline(string $newDiscipline): void
+    {
         $this->discipline[] = $newDiscipline;
     }
 
-    public function deleteDiscipline(string $discipline) {
+    /**
+     * Delete an existing discilpline from a teacher or false.
+     *
+     * @param string $discipline - The discipline to delete
+     * @return void
+     */
+    public function deleteDiscipline(string $discipline): void
+    {
         $key = array_search($discipline, $this->discipline);
-        if($key !== false) {
+        if ($key !== false) {
             unset($this->discipline[$key]);
         }
+    }
+
+    /**
+     * Get a string of disciplines separated by a coma.
+     *
+     * @return string 
+     */
+    public function showDisciplines(): string
+    {
+        return implode(", ", $this->discipline);
     }
 }
