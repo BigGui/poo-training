@@ -1,3 +1,7 @@
+<?php
+require_once "./include/_object.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +28,7 @@
                 </ul>
             </nav>
         </header>
-        
+
         <!-- QUESTION 1 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 1</h2>
@@ -36,11 +40,17 @@
                 Créer 2 professeurs différents.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                $teacher1 = new Teacher('Dupond', 'Jean', ['Mathématiques', 'Physiques'], 'Lycée Louis Legrand');
+                $teacher2 = new Teacher('Martin', 'Sophie', ['Français', 'Littérature'], 'Collège Jean-Moulin');
+
+                var_dump($teacher1, $teacher2);
+
+                ?>
             </div>
         </section>
-        
-        
+
+
         <!-- QUESTION 2 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 2</h2>
@@ -52,11 +62,11 @@
                 Afficher les écoles des 2 professeurs.
             </p>
             <div class="exercice-sandbox">
-                
+
             </div>
         </section>
-        
-        
+
+
         <!-- QUESTION 3 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 3</h2>
@@ -66,7 +76,7 @@
                 Tester l'ajout, la suppression et l'affichage sur chacun des profs.
             </p>
             <div class="exercice-sandbox">
-                
+
             </div>
         </section>
 
@@ -81,11 +91,12 @@
                 Afficher la phrase de présentation des 2 profs.
             </p>
             <div class="exercice-sandbox">
-                
+
             </div>
         </section>
 
     </div>
     <div class="copyright">© Guillaume Belleuvre, 2023 - DWWM</div>
 </body>
+
 </html>

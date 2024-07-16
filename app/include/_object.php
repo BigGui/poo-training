@@ -162,3 +162,20 @@ class Student
         return 'Bonjour, je m\'appelle ' . $this->getLastname() . ' ' . $this->getFirstname() . ' , j\'ai ' . $this->getAge() . ' ans et je vais à l\'école ' . $this->getSchool() . ' en class de ' . $this->getLevel() . '.';
     }
 }
+
+
+class Teacher
+{
+    private string $firstname;
+    private string $lastname;
+    private array $discipline;
+    private string $school;
+
+    public function __construct(string $firstname, string $lastname, array $discipline = [], string $school = '')
+    {
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $this->discipline = $discipline;
+        $this->school = $school;
+    }
+}
