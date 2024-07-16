@@ -64,7 +64,13 @@ require_once "./include/_object.php";
                 Afficher les écoles des 2 professeurs.
             </p>
             <div class="exercice-sandbox">
+                <?php
+                $teacher1->setSchool('Lycée de Ste Marie');
+                $teacher2->setSchool('Ecole de Poudlard');
 
+                echo '<p>' . $teacher1->getSchool() . '</p>'
+                    .  '<p>' . $teacher2->getSchool() . '</p>';
+                ?>
             </div>
         </section>
 
