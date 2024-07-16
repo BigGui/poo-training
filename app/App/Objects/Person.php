@@ -5,6 +5,8 @@ namespace App\Objects;
 class Person
 {
 
+    protected static string $sentence = 'Bonjour, je m\'appelle ##lastname## ##firstname##';
+
     protected string $firstname;
     protected string $lastname;
     private string $school;
@@ -100,7 +102,15 @@ class Person
      */
     public function introduceMySelf(): string
     {
-        return 'Bonjour, je m\'appelle ' . $this->getLastname()
-            . ' ' . $this->getFirstname();
+        preg_match_all('/##(\w+)##/', static::$sentence, $match);
+
+        $values =[];
+        foreach($match[1] as $key) {
+            if (isset($this->$key)) {
+                $values[] = $this->$key;
+            }
+        }
+
+        return str_replace($match[0], $values, static::$sentence);
     }
 }

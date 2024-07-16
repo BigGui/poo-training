@@ -133,6 +133,7 @@ use App\Objects\Student;
                 <?php
                 echo '<p>' . $student1->introduceMySelf() . '</p>' .
                     '<p>' . $student2->introduceMySelf() . '</p>';
+
                 ?>
             </div>
         </section>

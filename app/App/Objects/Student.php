@@ -7,8 +7,10 @@ use DateTime;
 class Student extends Person
 {
 
-    private DateTime $birthDate;
-    private string $level;
+    protected static string $sentence = 'Bonjour, je m\'appelle ##lastname## ##level##';
+
+    protected DateTime $birthDate;
+    protected string $level;
 
 
     /**
@@ -95,9 +97,9 @@ class Student extends Person
      *
      * @return string
      */
-    public function introduceMySelf(): string
-    {
-        return parent::introduceMySelf()
-            . ' , j\'ai ' . $this->getAge() . ' ans et je vais à l\'école ' . $this->getSchool() . ' en class de ' . $this->getLevel() . '.';
-    }
+    // public function introduceMySelf(): string
+    // {
+    //     return parent::introduceMySelf()
+    //         . ' , j\'ai ' . $this->getAge() . ' ans et je vais à l\'école ' . $this->getSchool() . ' en class de ' . $this->getLevel() . '.';
+    // }
 }

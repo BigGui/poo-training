@@ -6,6 +6,8 @@ namespace App\Objects;
 class Teacher extends Person
 {
 
+    protected static string $sentence = 'Bonjour, je m\'appelle ##lastname## ##firstname##';
+
     private array $discipline;
 
 
