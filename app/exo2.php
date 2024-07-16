@@ -44,7 +44,9 @@ require_once "./include/_object.php";
                 $teacher1 = new Teacher('Dupond', 'Jean', ['Mathématiques', 'Physiques'], 'Lycée Louis Legrand');
                 $teacher2 = new Teacher('Martin', 'Sophie', ['Français', 'Littérature'], 'Collège Jean-Moulin');
 
-                var_dump($teacher1, $teacher2);
+                $teacher3 = new Teacher('Duchemin', 'Jacques');
+
+                var_dump($teacher1, $teacher2, $teacher3);
 
                 ?>
             </div>
