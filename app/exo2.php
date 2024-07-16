@@ -107,6 +107,11 @@ require_once "./include/_object.php";
                 Afficher la phrase de présentation des 2 profs.
             </p>
             <div class="exercice-sandbox">
+                <?php
+                echo "<p>" . $teacher1->introduceMySelf() . "</p>";
+                echo "<p>" . $teacher2->introduceMySelf() . "</p>";
+
+                ?>
 
             </div>
         </section>

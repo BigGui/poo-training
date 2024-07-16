@@ -310,4 +310,14 @@ class Teacher
     {
         return implode(", ", $this->discipline);
     }
+
+    /**
+     * Introduce my self with a sentence.
+     *
+     * @return string
+     */
+    public function introduceMySelf(): string
+    {
+        return 'Bonjour, je m\'appelle ' . $this->getLastname() . ' ' . $this->getFirstname()." et j'enseigne à l'école ".$this->getSchool()." les matières suivantes : ".$this->showDisciplines().".";
+    }
 }
