@@ -4,13 +4,12 @@ namespace App\Objects;
 
 use DateTime;
 
-class Student
+class Student extends Person
 {
-    private string $lastname;
-    private string $firstname;
+
     private DateTime $birthDate;
     private string $level;
-    private string $school;
+
 
     /**
      * Create a new student
@@ -23,58 +22,14 @@ class Student
      */
     public function __construct(string $lastname, string $firstname, DateTime $birthDate, string $level, string $school)
     {
-        $this->lastname = $lastname;
-        $this->firstname = $firstname;
+        parent::__construct($firstname, $lastname, $school);
         $this->birthDate = $birthDate;
         $this->level = $level;
-        $this->school = $school;
     }
 
     // -------------------
     // GETTERS AND SETTERS
     // -------------------
-
-    /**
-     * Set firstname
-     *
-     * @param string $firstname
-     * @return void
-     */
-    public function setFirstname(string $firstname): void
-    {
-        $this->firstname = $firstname;
-    }
-
-    /**
-     * Get firstname
-     *
-     * @return string
-     */
-    public function getFirstname(): string
-    {
-        return $this->firstname;
-    }
-
-    /**
-     * Set lastname
-     *
-     * @param string $lastname
-     * @return void
-     */
-    public function setLastname(string $lastname): void
-    {
-        $this->lastname = $lastname;
-    }
-
-    /**
-     * Get lastname
-     *
-     * @return string
-     */
-    public function getLastname(): string
-    {
-        return $this->lastname;
-    }
 
 
     /**
@@ -96,27 +51,6 @@ class Student
     public function getLevel(): string
     {
         return $this->level;
-    }
-
-    /**
-     * Set the school name
-     *
-     * @param string $school
-     * @return void
-     */
-    public function setSchool(string $school): void
-    {
-        $this->school = $school;
-    }
-
-    /**
-     * Get the school name
-     *
-     * @return string
-     */
-    public function getSchool(): string
-    {
-        return $this->school;
     }
 
 
@@ -163,7 +97,7 @@ class Student
      */
     public function introduceMySelf(): string
     {
-        return 'Bonjour, je m\'appelle ' . $this->getLastname() . ' ' . $this->getFirstname() . ' , j\'ai ' . $this->getAge() . ' ans et je vais à l\'école ' . $this->getSchool() . ' en class de ' . $this->getLevel() . '.';
+        return parent::introduceMySelf()
+            . ' , j\'ai ' . $this->getAge() . ' ans et je vais à l\'école ' . $this->getSchool() . ' en class de ' . $this->getLevel() . '.';
     }
 }
-
