@@ -1,9 +1,9 @@
 <?php
 spl_autoload_register();
 
-use App\Objects\ElementarySchool;
-use App\Objects\MiddleSchool;
-use App\Objects\HighSchool;
+use App\School\ElementarySchool;
+use App\School\MiddleSchool;
+use App\School\HighSchool;
 
 ?>
 <!DOCTYPE html>

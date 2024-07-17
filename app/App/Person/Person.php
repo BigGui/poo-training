@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Objects;
+namespace App\Person;
+
+use App\School\School;
 
 abstract class Person
 {

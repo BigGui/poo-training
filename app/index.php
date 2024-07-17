@@ -1,8 +1,8 @@
 <?php
 spl_autoload_register();
 
-use App\Objects\Student;
-use App\Objects\ElementarySchool;
+use App\Person\Student;
+use App\School\ElementarySchool;
 
 ?>
 
