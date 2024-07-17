@@ -130,7 +130,7 @@ abstract class Person
      */
     private function getValueFromKey(string $key): string
     {
-        if (isset($this->$key)) return $this->$key;
+        if (property_exists($this, $key)) return $this->$key;
         
         if (method_exists($this, $key)) return $this->$key();
 
