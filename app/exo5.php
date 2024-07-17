@@ -1,3 +1,9 @@
+<?php
+spl_autoload_register();
+
+use App\View\View;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,18 +30,23 @@
                 </ul>
             </nav>
         </header>
-        
+
         <!-- QUESTION 1 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 1</h2>
             <p class="exercice-txt">
-            Créer une classe permettant de gérer l'affichage d'un template HTML en lisant un fichier grace à la fonction file_get_contents().
+                Créer une classe permettant de gérer l'affichage d'un template HTML en lisant un fichier grace à la fonction file_get_contents().
             </p>
             <div class="exercice-sandbox">
-    
+                <?php
+                $view1 = new View('App/Templates/header.html');
+
+                $view1->show();
+
+                ?>
             </div>
         </section>
-        
+
         <!-- QUESTION 2 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 2</h2>
@@ -43,10 +54,10 @@
                 Créer une classe permettant de gérer l'affichage des pages de ce mini-site.
             </p>
             <div class="exercice-sandbox">
-    
+
             </div>
         </section>
-        
+
         <!-- QUESTION 3 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 3</h2>
@@ -57,7 +68,7 @@
 
             </div>
         </section>
-        
+
         <!-- QUESTION 4 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 4</h2>
@@ -73,4 +84,5 @@
     </div>
     <div class="copyright">© Guillaume Belleuvre, 2023 - DWWM</div>
 </body>
+
 </html>
