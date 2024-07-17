@@ -20,13 +20,13 @@ class Student extends Person
      * @param string $firstname
      * @param DateTime $birthDate
      * @param string $level
-     * @param string $school
+     * @param School $school
      */
-    public function __construct(string $lastname, string $firstname, DateTime $birthDate, string $level, string $school)
+    public function __construct(string $lastname, string $firstname, DateTime $birthDate, string $level, School $school)
     {
         parent::initialize($firstname, $lastname, $school);
         $this->birthDate = $birthDate;
-        $this->level = $level;
+        $this->setLevel($level);
     }
 
     // -------------------
@@ -38,11 +38,14 @@ class Student extends Person
      * Set the level name
      *
      * @param string $level
-     * @return void
+     * @return bool
      */
-    public function setLevel(string $level): void
+    public function setLevel(string $level): bool
     {
+        if (!$this->school->isSupportedLevel($level)) return false;
+        
         $this->level = $level;
+        return true;
     }
 
     /**

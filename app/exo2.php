@@ -2,6 +2,7 @@
 spl_autoload_register();
 
 use App\Objects\Teacher;
+use App\Objects\HighSchool;
 
 ?>
 <!DOCTYPE html>
@@ -43,8 +44,11 @@ use App\Objects\Teacher;
             </p>
             <div class="exercice-sandbox">
                 <?php
-                $teacher1 = new Teacher('Dupond', 'Jean', ['Mathématiques', 'Physiques'], 'Lycée Louis Legrand');
-                $teacher2 = new Teacher('Martin', 'Sophie', ['Français', 'Littérature'], 'Collège Jean-Moulin');
+
+                $school1 = new HighSchool('Lycée Eric Zemmour', 'Marseille');
+
+                $teacher1 = new Teacher('Dupond', 'Jean', ['Mathématiques', 'Physiques'], $school1);
+                $teacher2 = new Teacher('Martin', 'Sophie', ['Français', 'Littérature'], $school1);
 
                 $teacher3 = new Teacher('Duchemin', 'Jacques');
 
@@ -67,8 +71,10 @@ use App\Objects\Teacher;
             </p>
             <div class="exercice-sandbox">
                 <?php
-                $teacher1->setSchool('Lycée de Ste Marie');
-                $teacher2->setSchool('Ecole de Poudlard');
+                $school2 = new HighSchool('Jacques Prévert', 'Caen');
+
+                $teacher1->setSchool($school2);
+                $teacher2->setSchool($school2);
 
                 echo '<p>' . $teacher1->getSchool() . '</p>'
                     .  '<p>' . $teacher2->getSchool() . '</p>';

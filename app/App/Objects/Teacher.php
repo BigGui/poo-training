@@ -17,9 +17,9 @@ class Teacher extends Person
      * @param string $firstname
      * @param string $lastname
      * @param array $discipline
-     * @param string $school
+     * @param School $school
      */
-    public function __construct(string $firstname, string $lastname, array $discipline = [], string $school = '')
+    public function __construct(string $firstname, string $lastname, array $discipline = [], ?School $school = null)
     {
         parent::initialize($firstname, $lastname, $school);
 

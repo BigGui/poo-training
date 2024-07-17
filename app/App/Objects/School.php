@@ -73,4 +73,9 @@ abstract class School
     {
         return in_array($searchedLevel, static::$level);
     }
+
+    public function __toString(): string
+    {
+        return $this->name;
+    }
 }

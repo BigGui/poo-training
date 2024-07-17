@@ -2,6 +2,7 @@
 spl_autoload_register();
 
 use App\Objects\Student;
+use App\Objects\ElementarySchool;
 
 ?>
 
@@ -44,10 +45,13 @@ use App\Objects\Student;
             </p>
             <div class="exercice-sandbox">
                 <?php
+
+                $school1 = new ElementarySchool('Starsky', 'Baycity');
+
                 $stud1Birthdate = new DateTime("1973-6-10");
                 $stud2Birthdate = new DateTime("1990/4/5");
-                $student1 = new Student('Molotov', 'Zangief',  $stud1Birthdate, "CP", "Jules Vernes");
-                $student2 = new Student('Jones', 'Guile', $stud2Birthdate, "Moyenne Section", "Rostand");
+                $student1 = new Student('Molotov', 'Zangief',  $stud1Birthdate, "CP", $school1);
+                $student2 = new Student('Jones', 'Guile', $stud2Birthdate, "CE2", $school1);
 
                 var_dump($student1);
                 var_dump($student2);

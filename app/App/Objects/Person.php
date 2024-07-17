@@ -9,19 +9,19 @@ abstract class Person
 
     protected string $firstname;
     protected string $lastname;
-    protected string $school;
+    protected ?School $school;
 
     /**
      * Create a new student
      *
      * @param string $lastname
      * @param string $firstname
-     * @param string $school
+     * @param ?School $school
      */
     protected function initialize(
         string $lastname,
         string $firstname,
-        string $school
+        ?School $school = null
     ) {
         $this->lastname = $lastname;
         $this->firstname = $firstname;
@@ -73,7 +73,7 @@ abstract class Person
     /**
      * Get the value of school
      */
-    public function getSchool(): string
+    public function getSchool(): ?School
     {
         return $this->school;
     }
@@ -81,9 +81,9 @@ abstract class Person
     /**
      * Set the value of school
      *
-     * @return  self
+     * @return  Person
      */
-    public function setSchool(string $school): Teacher
+    public function setSchool(?School $school): Person
     {
         $this->school = $school;
 
