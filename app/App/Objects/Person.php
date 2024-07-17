@@ -2,14 +2,14 @@
 
 namespace App\Objects;
 
-class Person
+abstract class Person
 {
 
     protected static string $sentence = 'Bonjour, je m\'appelle ##lastname## ##firstname##';
 
     protected string $firstname;
     protected string $lastname;
-    private string $school;
+    protected string $school;
 
     /**
      * Create a new student
@@ -18,7 +18,7 @@ class Person
      * @param string $firstname
      * @param string $school
      */
-    public function __construct(
+    protected function initialize(
         string $lastname,
         string $firstname,
         string $school

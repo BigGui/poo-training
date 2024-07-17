@@ -24,7 +24,7 @@ class Student extends Person
      */
     public function __construct(string $lastname, string $firstname, DateTime $birthDate, string $level, string $school)
     {
-        parent::__construct($firstname, $lastname, $school);
+        parent::initialize($firstname, $lastname, $school);
         $this->birthDate = $birthDate;
         $this->level = $level;
     }
