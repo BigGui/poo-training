@@ -104,13 +104,27 @@ class Person
     {
         preg_match_all('/##(\w+)##/', static::$sentence, $match);
 
-        $values =[];
-        foreach($match[1] as $key) {
-            if (isset($this->$key)) {
-                $values[] = $this->$key;
-            }
-        }
+        // $values = [];
+        // foreach ($match[1] as $key) {
+        //     $values[] = $this->getValueFromKey($key);
+        // }
+        $values = array_map([$this, 'getValueFromKey'], $match[1]);
 
         return str_replace($match[0], $values, static::$sentence);
+    }
+
+    /**
+     * Get a value from a property or named method.
+     *
+     * @param string $key - Property or method name
+     * @return string - value from property or method
+     */
+    private function getValueFromKey(string $key): string
+    {
+        if (isset($this->$key)) return $this->$key;
+        
+        if (in_array($key, get_class_methods($this))) return $this->$key();
+
+        return '';
     }
 }

@@ -6,9 +6,9 @@ namespace App\Objects;
 class Teacher extends Person
 {
 
-    protected static string $sentence = 'Bonjour, je m\'appelle ##lastname## ##firstname##';
+    protected static string $sentence = 'Bonjour, je m\'appelle ##lastname## ##firstname## et j\'enseigne à l\'école ##school## les matières suivantes : ##showDisciplines##.';
 
-    private array $discipline;
+    protected array $discipline;
 
 
     /**
@@ -89,17 +89,5 @@ class Teacher extends Person
     public function showDisciplines(): string
     {
         return implode(", ", $this->discipline);
-    }
-
-    /**
-     * Introduce my self with a sentence.
-     *
-     * @return string
-     */
-    public function introduceMySelf(): string
-    {
-        return parent::introduceMySelf() .
-            " et j'enseigne à l'école "
-            . $this->getSchool() . " les matières suivantes : " . $this->showDisciplines() . ".";
     }
 }

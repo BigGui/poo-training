@@ -7,7 +7,7 @@ use DateTime;
 class Student extends Person
 {
 
-    protected static string $sentence = 'Bonjour, je m\'appelle ##lastname## ##level##';
+    protected static string $sentence = 'Bonjour, je m\'appelle ##lastname## ##firstname##, j\'ai ##getAge## ans et je vais à l\'école ##school## en class de ##level##.';
 
     protected DateTime $birthDate;
     protected string $level;
@@ -91,15 +91,4 @@ class Student extends Person
     {
         return $this->birthDate->diff(new DateTime())->y;
     }
-
-    /**
-     * Introduce my self with a sentence.
-     *
-     * @return string
-     */
-    // public function introduceMySelf(): string
-    // {
-    //     return parent::introduceMySelf()
-    //         . ' , j\'ai ' . $this->getAge() . ' ans et je vais à l\'école ' . $this->getSchool() . ' en class de ' . $this->getLevel() . '.';
-    // }
 }
