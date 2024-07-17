@@ -1,7 +1,9 @@
 <?php
 spl_autoload_register();
 
-use App\Objects\School;
+use App\Objects\ElementarySchool;
+use App\Objects\MiddleSchool;
+use App\Objects\HighSchool;
 
 ?>
 <!DOCTYPE html>
@@ -41,8 +43,8 @@ use App\Objects\School;
             </p>
             <div class="exercice-sandbox">
                 <?php
-                $school1 = new School('Starsky', 'Baycity');
-                $school2 = new School('Hutch', 'Los Angeles');
+                $school1 = new ElementarySchool('Starsky', 'Baycity');
+                $school2 = new ElementarySchool('Hutch', 'Los Angeles');
 
                 var_dump($school1, $school2);
                 ?>
@@ -61,7 +63,17 @@ use App\Objects\School;
                 Créer une école de chaque type.
             </p>
             <div class="exercice-sandbox">
+                <?php
+                $elementarySchool = new ElementarySchool('Sainte Soline Revolutionary School', 'Berlin');
+                $middleSchool = new MiddleSchool('Louise Michel', 'Caen');
+                $highSchool = new HighSchool('After School', 'Condé sur noireau');
 
+                var_dump(
+                    $elementarySchool,
+                    $middleSchool,
+                    $highSchool
+                );
+                ?>
             </div>
         </section>
 
@@ -75,7 +87,15 @@ use App\Objects\School;
                 Tester la méthode créée.
             </p>
             <div class="exercice-sandbox">
+                <?php
+                var_dump(
+                    $middleSchool->isSupportedLevel('6ème'),
+                    $highSchool->isSupportedLevel('truc'),
+                    $highSchool->isSupportedLevel('2nde'),
 
+                );
+
+                ?>
             </div>
         </section>
 

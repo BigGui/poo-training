@@ -2,8 +2,10 @@
 
 namespace App\Objects;
 
-class School
+abstract class School
 {
+    public static array $level = [];
+
     protected string $name;
     protected string $city;
 
@@ -60,4 +62,15 @@ class School
     // -------------------
     // INSTANCE METHODS
     // -------------------
+
+    /**
+     * Checks if a school support a level.
+     *
+     * @param string $searchedLevel The level searched
+     * @return boolean
+     */
+    public function isSupportedLevel(string $searchedLevel): bool
+    {
+        return in_array($searchedLevel, static::$level);
+    }
 }
