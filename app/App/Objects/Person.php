@@ -102,6 +102,12 @@ abstract class Person
      */
     public function introduceMySelf(): string
     {
+        return preg_replace_callback(
+            '/##(\w+)##/',
+            fn($m) => $this->getValueFromKey($m[1]),
+            static::$sentence
+        );
+
         // Looking for keys to replace in the sentence
         preg_match_all('/##(\w+)##/', static::$sentence, $match);
 
