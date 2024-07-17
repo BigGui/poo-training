@@ -109,17 +109,17 @@ abstract class Person
         );
 
         // Looking for keys to replace in the sentence
-        preg_match_all('/##(\w+)##/', static::$sentence, $match);
+        // preg_match_all('/##(\w+)##/', static::$sentence, $match);
 
         // Get a value for each key matching a property or method name
-        $values = array_map([$this, 'getValueFromKey'], $match[1]);
+        // $values = array_map([$this, 'getValueFromKey'], $match[1]);
         // $values = [];
         // foreach ($match[1] as $key) {
         //     $values[] = $this->getValueFromKey($key);
         // }
 
         // Replace each key in the sentence with its value
-        return str_replace($match[0], $values, static::$sentence);
+        // return str_replace($match[0], $values, static::$sentence);
     }
 
     /**
