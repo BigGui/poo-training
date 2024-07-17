@@ -39,9 +39,16 @@ use App\View\View;
             </p>
             <div class="exercice-sandbox">
                 <?php
-                $view1 = new View('App/Templates/header.html');
+                // $view1 = new View(
+                //     [
+                //         'mainTitle' => 'This is a title',
+                //         'link1' => 'Home',
+                //         'link2' => 'Contact',
+                //         'sentence1' => 'This is a text about me.'
+                //     ]
+                // );
 
-                $view1->show();
+                // $view1->show();
 
                 ?>
             </div>

@@ -4,25 +4,14 @@ namespace App\View;
 
 class View
 {
-    private string $path;
-    private array $data;
-
-    public function __construct(string $path, array $data)
-    {
-        $this->path = $path;
-        $this->data = $data;
-    }
-
-    // -------------------
-    // GETTERS AND SETTERS
-    // -------------------
+    protected static string $path = '';
 
     /**
      * Get the value of path
      */
-    public function getPath(): string
+    public static function getPath(): string
     {
-        return $this->path;
+        return static::$path;
     }
 
     /**
@@ -30,12 +19,24 @@ class View
      *
      * @return  View
      */
-    public function setPath(string $path): View
+    public static function setPath(string $path): void
     {
-        $this->path = $path;
-
-        return $this;
+        static::$path = $path;
     }
+
+
+
+    protected array $data;
+
+    public function __construct(array $data)
+    {
+        $this->data = $data;
+    }
+
+    // -------------------
+    // GETTERS AND SETTERS
+    // -------------------
+
 
     /**
      * Get the value of data
@@ -63,13 +64,22 @@ class View
 
     public function getTemplateContent(): string
     {
-        if (!file_exists($this->path)) return '';
+        if (!file_exists(static::$path)) return '';
 
-        return file_get_contents($this->path);
+        return file_get_contents(static::$path);
+    }
+
+    public function fillTemplateWithData(): string
+    {
+        return preg_replace_callback(
+            '/{{(\w+)}}/',
+            fn($m) => isset($this->data[$m[1]]) ? $this->data[$m[1]] : '',
+            $this->getTemplateContent()
+        );
     }
 
     public function show(): void
     {
-        echo $this->getTemplateContent();
+        echo $this->fillTemplateWithData();
     }
 }
