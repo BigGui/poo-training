@@ -102,19 +102,22 @@ abstract class Person
      */
     public function introduceMySelf(): string
     {
+        // Looking for keys to replace in the sentence
         preg_match_all('/##(\w+)##/', static::$sentence, $match);
 
+        // Get a value for each key matching a property or method name
+        $values = array_map([$this, 'getValueFromKey'], $match[1]);
         // $values = [];
         // foreach ($match[1] as $key) {
         //     $values[] = $this->getValueFromKey($key);
         // }
-        $values = array_map([$this, 'getValueFromKey'], $match[1]);
 
+        // Replace each key in the sentence with its value
         return str_replace($match[0], $values, static::$sentence);
     }
 
     /**
-     * Get a value from a property or named method.
+     * Get a value from a property or method name
      *
      * @param string $key - Property or method name
      * @return string - value from property or method
