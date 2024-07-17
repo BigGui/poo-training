@@ -132,7 +132,7 @@ abstract class Person
     {
         if (isset($this->$key)) return $this->$key;
         
-        if (in_array($key, get_class_methods($this))) return $this->$key();
+        if (method_exists($this, $key)) return $this->$key();
 
         return '';
     }
