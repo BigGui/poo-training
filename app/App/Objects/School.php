@@ -4,10 +4,10 @@ namespace App\Objects;
 
 abstract class School
 {
-    public static array $level = [];
+    protected static array $level = [];
 
-    protected string $name;
-    protected string $city;
+    private string $name;
+    private string $city;
 
     public function __construct(string $n, string $c)
     {

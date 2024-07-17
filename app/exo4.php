@@ -91,8 +91,7 @@ use App\Objects\HighSchool;
                 var_dump(
                     $middleSchool->isSupportedLevel('6ème'),
                     $highSchool->isSupportedLevel('truc'),
-                    $highSchool->isSupportedLevel('2nde'),
-
+                    $highSchool->isSupportedLevel('2nde')
                 );
 
                 ?>
